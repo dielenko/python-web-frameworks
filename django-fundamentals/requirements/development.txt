@@ -1,5 +1,0 @@
-debugpy==1.5.1
-pylint==2.12.2
-pylint-django==2.5.0
-coverage==6.2.0
-coveralls==3.3.1
