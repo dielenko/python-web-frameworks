@@ -1,0 +1,33 @@
+<!-- todo_list/todo_app/templates/base.html -->
+<!-- Base template -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Action Plan Lists</title>
+    <!--django bootstrap v5 css-->
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body class="p-4 m-0 border-0 bd-example m-0 border-0">
+    <div class="container">
+        <div class="p-3 mb-1 nav bg-info rounded-3">
+            <h1 onclick="location.href='{% url "index" %}'">Task Tracker</h1>
+        </div>
+        <div class="text-success">
+            <hr>
+        </div>
+        <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+            {% block content %}
+            This content will be replaced by different html code for each page.
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

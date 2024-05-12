@@ -1,0 +1,52 @@
+<!-- todo_list/todo_app/templates/todo_app/todo_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <div>
+        <div class="p-3 mb-2 bg-secondary text-white rounded-3">
+            <h3>Edit list:</h3>
+        </div>
+        <div class="p-3 mb-2 bg-light text-dark rounded-3">
+            <u><h5>{{ todo_list.title | upper }}</h5></u>
+            <ul>
+                {% for todo in object_list %}
+                <li>
+                    <div>
+                        <div
+                            role="button"
+                            onclick="location.href=
+                            '{% url "item-update" todo_list.id todo.id %}'">
+                            {{ todo.title }}
+                            (Due {{ todo.due_date | date:"l, F j" }})
+                        </div>
+                    </div>
+                </li>
+                {% empty %}
+                <p>There are no to-do items in this list.</p>
+                {% endfor %}
+            </ul>
+        </div>
+        <p>
+            <input
+                value="Add a new item"
+                class="btn btn-secondary"
+                type="button"
+                onclick="location.href=
+                '{% url "item-add" todo_list.id %}'" />
+            <input
+                value="Delete this list"
+                class="btn btn-outline-danger"
+                type="button"
+                onclick="location.href=
+                '{% url "list-delete" todo_list.id %}'" />
+            <input
+                value="Go back to the main page"
+                class="btn btn-success"
+                type="button"
+                onclick="location.href=
+                '{% url "index" %}'" />
+        </p>
+    </div>
+</div>
+{% endblock %}

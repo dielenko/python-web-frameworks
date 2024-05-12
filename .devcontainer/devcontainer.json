@@ -40,7 +40,9 @@
 				"KevinRose.vsc-python-indent",
 				"eamodio.gitlens",
 				"alefragnani.project-manager",
-				"ms-python.pylint"
+				"ms-python.pylint",
+				"batisteo.vscode-django",
+				"AnbuselvanRocky.bootstrap5-vscode"
 			]
 		},
 		"settings": {
