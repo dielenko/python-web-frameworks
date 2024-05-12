@@ -1,0 +1,34 @@
+<!-- todo_list/todo_app/templates/todo_app/index.html -->
+
+{% extends "base.html" %}
+{% block content %}
+<!--index.html-->
+{% if object_list %}
+<h3>All my lists</h3>
+{% endif %}
+<div class="p-3 mb-2 bg-secondary text-white rounded-3">
+    <ul style="list-style-type:circle">
+        {% for todolist in object_list %}
+        <p>
+        <li
+                role="button"
+                onclick="location.href='{% url "list" todolist.id %}'">
+                {{ todolist.title }}
+        </li>
+        </p>
+        {% empty %}
+        <h4>You have no lists!</h4>
+        {% endfor %}
+    </ul>
+</div>
+<p>
+    <input
+        name="Add a new list"
+        class="btn btn-outline-info"
+        type="button"
+        value="Add a new list"
+        onclick="location.href='{% url "list-add" %}'"
+    />
+</p>
+
+{% endblock %}
